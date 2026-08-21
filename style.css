@@ -1,0 +1,363 @@
+:root {
+    --background: #f7f7f5;
+    --surface: #ffffff;
+    --text: #222222;
+    --muted: #777777;
+    --border: #e5e5e5;
+    --accent: #ff5a36;
+    --accent-hover: #e84826;
+
+    --max-width: 1200px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--background);
+    color: var(--text);
+
+    font-family: IBM Plex Sans;
+
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+}
+
+
+/* =========================
+   ОБЩЕЕ
+   ========================= */
+
+.container {
+    width: min(
+        calc(100% - 40px),
+        var(--max-width)
+    );
+
+    margin: 0 auto;
+}
+
+
+/* =========================
+   HEADER
+   ========================= */
+
+.site-header {
+    padding: 70px 0 50px;
+}
+
+.site-header h1 {
+    margin: 0 0 12px;
+
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+}
+
+.intro {
+    margin: 0 0 24px;
+
+    color: var(--muted);
+    font-size: 18px;
+}
+
+.telegram-link {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 10px 16px;
+
+    background: var(--accent);
+    color: white;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.telegram-link:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   CONTENTS
+   ========================= */
+
+.contents {
+    margin-bottom: 70px;
+
+    padding: 28px;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+}
+
+.contents h2 {
+    margin: 0 0 20px;
+
+    font-size: 22px;
+}
+
+.contents-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 8px 20px;
+}
+
+.contents-grid a {
+    padding: 5px 0;
+
+    color: #555;
+
+    text-decoration: none;
+
+    transition: color 0.15s ease;
+}
+
+.contents-grid a:hover {
+    color: var(--accent);
+}
+
+
+/* =========================
+   SECTIONS
+   ========================= */
+
+.reward-section {
+    margin-bottom: 80px;
+
+    scroll-margin-top: 25px;
+}
+
+.reward-section > h2 {
+    margin: 0 0 28px;
+
+    font-size: clamp(26px, 4vw, 36px);
+    line-height: 1.2;
+
+    letter-spacing: -0.5px;
+}
+
+
+/* =========================
+   REWARDS GRID
+   ========================= */
+
+.rewards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+/* =========================
+   CARD
+   ========================= */
+
+.reward {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+
+    padding: 20px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.reward:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.07);
+}
+
+
+/* =========================
+   IMAGE
+   ========================= */
+
+.reward img {
+    width: 100%;
+    height: 180px;
+
+    object-fit: contain;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================
+   TEXT
+   ========================= */
+
+.reward h3 {
+    margin: 0 0 7px;
+
+    font-size: 17px;
+    line-height: 1.35;
+}
+
+.reward p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.site-footer {
+    margin-top: 40px;
+    padding: 35px 0;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--muted);
+    text-align: center;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 1000px) {
+
+    .rewards {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+    .contents-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 700px) {
+
+    .container {
+        width: min(
+            calc(100% - 28px),
+            var(--max-width)
+        );
+    }
+
+    .site-header {
+        padding: 45px 0 35px;
+    }
+
+    .site-header h1 {
+        letter-spacing: -1px;
+    }
+
+    .contents {
+        padding: 20px;
+
+        margin-bottom: 50px;
+    }
+
+    .contents-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .reward-section {
+        margin-bottom: 55px;
+    }
+
+    .rewards {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+    }
+
+    .reward {
+        padding: 14px;
+
+        border-radius: 12px;
+    }
+
+    .reward img {
+        height: 130px;
+        margin-bottom: 12px;
+    }
+
+    .reward h3 {
+        font-size: 15px;
+    }
+
+    .reward p {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================
+   VERY SMALL MOBILE
+   ========================= */
+
+@media (max-width: 420px) {
+
+    .rewards {
+        grid-template-columns: 1fr;
+    }
+
+    .reward {
+        padding: 18px;
+    }
+
+    .reward img {
+        height: 180px;
+    }
+}
